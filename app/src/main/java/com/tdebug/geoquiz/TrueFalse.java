@@ -17,7 +17,7 @@ public class TrueFalse {
         this.mQuestion = mQuestion;
     }
 
-    public boolean ismTrueQuestion() {
+    public boolean isTrueQuestion() {
         return mTrueQuestion;
     }
 
