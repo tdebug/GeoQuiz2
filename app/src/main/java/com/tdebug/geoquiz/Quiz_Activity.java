@@ -29,7 +29,10 @@ public class Quiz_Activity extends Activity {
 
     private int mCurrentIndex = 0;
 
-
+    public void updateQuestion() {
+        int question = mQuestionBank[mCurrentIndex].getmQuestion();
+        mQuestionTextView.setText(question);
+    }
 
 
     @Override
@@ -58,6 +61,20 @@ public class Quiz_Activity extends Activity {
 
             }
         });
+
+
+        mNextButton = (Button)findViewById(R.id.next_button);
+        mNextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
+                int question = mQuestionBank[mCurrentIndex].getmQuestion();
+                mQuestionTextView.setText(question);
+            }
+        });
+
+
+        updateQuestion();
 
 
 
