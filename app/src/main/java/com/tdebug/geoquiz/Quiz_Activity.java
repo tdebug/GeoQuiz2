@@ -91,8 +91,6 @@ public class Quiz_Activity extends Activity {
 
 
 
-
-
     }
 
 
