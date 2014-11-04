@@ -31,7 +31,21 @@ android:orientation="vertical" >
     />
     <!--android:text="@string/question_text" />-->
 
-<LinearLayout
+    <Button
+    android:id="@+id/false_button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/false_button"
+        android:layout_gravity="right" />
+
+    <Button
+        android:id="@+id/true_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/true_button"
+        android:layout_gravity="right" />
+
+    <LinearLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal" >
@@ -40,18 +54,17 @@ android:orientation="vertical" >
         android:id="@+id/next_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/next_button" />
-
+        android:text="@string/next_button"
+        android:drawableRight="@drawable/arrow_right"
+        android:drawablePadding="4dp"
+        />
 
     <Button
-        android:id="@+id/true_button"
-        android:layout_width="wrap_content"
+        android:layout_width="@+id/prev_button"
         android:layout_height="wrap_content"
-        android:text="@string/true_button" />
-    <Button
-        android:id="@+id/false_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/false_button" />
-</LinearLayout>
+
+
+        />
+
+    </LinearLayout>
 </LinearLayout>
