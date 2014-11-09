@@ -21,6 +21,7 @@ public class Quiz_Activity extends Activity {
     private TextView mQuestionTextView;
 
     private static final String TAG = "QuizActivity";
+    private static final String KEY_INDEX = "index";
 
 
     private TrueFalse[] mQuestionBank = new TrueFalse[] {
@@ -34,6 +35,7 @@ public class Quiz_Activity extends Activity {
     private int mCurrentIndex = 0;
 
     public void updateQuestion() {
+        //Log.d(TAG, "Updating question text to question #" + mCurrentIndex, new Exception());
         int question = mQuestionBank[mCurrentIndex].getmQuestion();
         mQuestionTextView.setText(question);
     }
@@ -102,23 +104,34 @@ public class Quiz_Activity extends Activity {
         });
 
         mPrevButton = (ImageButton)findViewById(R.id.prev_button);
-        mPrevButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (mCurrentIndex > 0){
-                    mCurrentIndex = (mCurrentIndex - 1) % mQuestionBank.length;
-                    int question = mQuestionBank[mCurrentIndex].getmQuestion();
-                    mQuestionTextView.setText(question);
-                }
-            }
-        });
+
+
+        if (savedInstanceState != null) {
+            mCurrentIndex = savedInstanceState.getInt(KEY_INDEX, 0);
+        }
+
+        //log at debug
+        //Log.d(TAG, "Current question index:" + mCurrentIndex);
+
+        /*TrueFalse check_question;
+        try {
+            check_question = mQuestionBank[mCurrentIndex];
+        }catch (ArrayIndexOutOfBoundsException ex){
+            Log.e(TAG, "Index out of bounds", ex);
+        }*/
 
 
         updateQuestion();
 
 
-
     } //end of onCreate
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        Log.i(TAG, "savedInstanceState");
+        savedInstanceState.putInt(KEY_INDEX, mCurrentIndex);
+    }
 
     @Override
     public void onStart() {
