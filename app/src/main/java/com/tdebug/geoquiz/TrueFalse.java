@@ -9,11 +9,22 @@ public class TrueFalse {
 
     private boolean mTrueQuestion;
 
-    public int getmQuestion() {
+    private boolean mWasCheated;
+
+
+    public boolean isWasCheated() {
+        return mWasCheated;
+    }
+
+    public void setWasCheated(boolean mWasCheated) {
+        this.mWasCheated = mWasCheated;
+    }
+
+    public int getQuestion() {
         return mQuestion;
     }
 
-    public void setmQuestion(int mQuestion) {
+    public void setQuestion(int mQuestion) {
         this.mQuestion = mQuestion;
     }
 
@@ -21,22 +32,18 @@ public class TrueFalse {
         return mTrueQuestion;
     }
 
-    public void setmTrueQuestion(boolean mTrueQuestion) {
+    public void setTrueQuestion(boolean mTrueQuestion) {
         this.mTrueQuestion = mTrueQuestion;
     }
 
 
-    public TrueFalse(int question, boolean trueQuestion) {
+    public TrueFalse(int question, boolean trueQuestion, boolean wasCheated) {
 
         mQuestion = question;
-        trueQuestion = mTrueQuestion;
-
-
+        mTrueQuestion = trueQuestion;
+        mWasCheated = wasCheated;
 
     }
-
-
-
 
 
 }
